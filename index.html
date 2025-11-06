@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter Sentiment Analysis</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #1DA1F2, #14171A);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      color: #FFD700;
+      margin-bottom: 20px;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 15px;
+      width: 400px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    textarea {
+      width: 90%;
+      height: 80px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      resize: none;
+    }
+    button {
+      background-color: #FFD700;
+      color: #14171A;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #FFC300;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Twitter Sentiment Analysis</h1>
+    <form method="POST" action="/analyze">
+      <textarea name="tweet" placeholder="Enter tweet text...">{{ tweet or '' }}</textarea><br>
+      <button type="submit">Analyze Sentiment</button>
+    </form>
+    {% if sentiment %}
+      <div id="result">{{ sentiment }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>
